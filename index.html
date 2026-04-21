@@ -249,22 +249,17 @@
             <h2 class="section-title">Resume</h2>
             <div class="resume-container">
                 <div class="resume-panel scroll-reveal">
-                    <h3>Download My Resume</h3>
-                    <p>Visitors can download the public resume file from this portfolio. Keep a file named <strong>resume.pdf</strong> in the same folder as this page before deploying so everyone can access it.</p>
+                    <h3>View My Resume</h3>
+                    <p>My latest resume is available here for recruiters, collaborators, and teams who want to know more about my work and experience.</p>
                     <div class="resume-actions">
                         <a class="btn btn-primary" href="resume.pdf" download id="resumeDownload">Download Resume</a>
                         <a class="btn btn-secondary" href="resume.pdf" target="_blank" id="resumePreview" rel="noopener">Open Resume</a>
                     </div>
                 </div>
 
-                <div class="resume-panel resume-file-control scroll-reveal">
-                    <h3>Manage Resume</h3>
-                    <p>Use this to test a new resume in your browser. To make it public for other people, add that PDF to the website folder as <strong>resume.pdf</strong> and redeploy the site.</p>
-                    <input type="file" id="resumeUpload" accept=".pdf,application/pdf">
-                    <div class="resume-actions">
-                        <button type="button" class="btn btn-small danger-button" onclick="clearLocalResume()">Delete Local Resume</button>
-                    </div>
-                    <p class="resume-status" id="resumeStatus">Public resume path: resume.pdf</p>
+                <div class="resume-panel resume-preview-card scroll-reveal">
+                    <iframe src="resume.pdf" title="Amarnath Yadav Resume" class="resume-frame"></iframe>
+                    <p class="resume-status">Only the portfolio owner can update this file by replacing <strong>resume.pdf</strong> in the project before publishing.</p>
                 </div>
             </div>
         </div>

@@ -56,66 +56,6 @@ function smoothScroll(target) {
     }
 }
 
-// ========== Resume Upload Preview ==========
-let localResumeUrl = '';
-const publicResumePath = 'resume.pdf';
-const resumeUpload = document.getElementById('resumeUpload');
-const resumeDownload = document.getElementById('resumeDownload');
-const heroResumeDownload = document.getElementById('heroResumeDownload');
-const resumePreview = document.getElementById('resumePreview');
-const resumeStatus = document.getElementById('resumeStatus');
-
-function setResumeLinks(url, fileName, isLocal) {
-    [resumeDownload, heroResumeDownload].forEach(link => {
-        if (!link) return;
-        link.href = url;
-        link.download = fileName;
-    });
-
-    if (resumePreview) {
-        resumePreview.href = url;
-    }
-
-    if (resumeStatus) {
-        resumeStatus.textContent = isLocal
-            ? `Local resume selected: ${fileName}. Add it as resume.pdf before deployment for public access.`
-            : 'Public resume path: resume.pdf';
-    }
-}
-
-if (resumeUpload) {
-    resumeUpload.addEventListener('change', (event) => {
-        const file = event.target.files[0];
-        if (!file) return;
-
-        if (file.type !== 'application/pdf') {
-            resumeStatus.textContent = 'Please upload a PDF resume.';
-            resumeUpload.value = '';
-            return;
-        }
-
-        if (localResumeUrl) {
-            URL.revokeObjectURL(localResumeUrl);
-        }
-
-        localResumeUrl = URL.createObjectURL(file);
-        setResumeLinks(localResumeUrl, file.name, true);
-    });
-}
-
-function clearLocalResume() {
-    if (localResumeUrl) {
-        URL.revokeObjectURL(localResumeUrl);
-        localResumeUrl = '';
-    }
-
-    if (resumeUpload) {
-        resumeUpload.value = '';
-    }
-
-    setResumeLinks(publicResumePath, 'Amarnath-Yadav-Resume.pdf', false);
-}
-
 // ========== Scroll Reveal Animation ==========
 const observerOptions = {
     threshold: 0.1,
