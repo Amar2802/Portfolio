@@ -1,4 +1,5 @@
-﻿// ========== Typing Animation ==========
+﻿import { Analytics } from "@vercel/analytics/next"
+// ========== Typing Animation ==========
 const typingTexts = ['Full Stack Developer', 'MERN Stack Developer', 'Problem Solver'];
 let typingIndex = 0;
 let charIndex = 0;
